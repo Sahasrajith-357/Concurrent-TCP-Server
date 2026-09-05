@@ -33,7 +33,7 @@ func handle(connection net.Conn) {
 	scanner := bufio.NewScanner(connection)
 	for scanner.Err() == nil && scanner.Scan() {
 		line := scanner.Text()
-		log.Printf("received: %q", line)
+		log.Printf("received: %s", line)
 
 		fmt.Fprintf(connection, "echo: %s\n", line)
 	}
