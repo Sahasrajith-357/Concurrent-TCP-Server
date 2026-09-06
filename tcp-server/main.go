@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"net"
 )
@@ -23,7 +22,7 @@ func main() {
 		}
 		log.Printf("client connected: %s", conn.RemoteAddr())
 
-		handle(conn)
+		go handle(conn)
 	}
 }
 
@@ -33,9 +32,7 @@ func handle(connection net.Conn) {
 	scanner := bufio.NewScanner(connection)
 	for scanner.Err() == nil && scanner.Scan() {
 		line := scanner.Text()
-		log.Printf("received: %s", line)
-
-		fmt.Fprintf(connection, "echo: %s\n", line)
+		log.Printf("received: %s from %v", line, connection.RemoteAddr())
 	}
 
 	log.Printf("client disconnected: %s", connection.RemoteAddr())
