@@ -1,0 +1,19 @@
+# Binaries
+*.exe
+*.dll
+*.so
+
+# Test binary
+*.test
+
+# Output / coverage
+*.out
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
