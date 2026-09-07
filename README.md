@@ -24,7 +24,8 @@ A concurrent TCP echo server and client built with Go's standard `net` package. 
 ## Running the server
 
 ```bash
-cd echo-server
+cd tcp-multithreading
+cd tcp-server
 go run main.go
 ```
 
@@ -35,7 +36,8 @@ The server listens on `:9000` and logs each connection, message, and disconnect.
 Using the included Go client:
 
 ```bash
-cd echo-client
+cd tcp-multithreading
+cd tcp-client
 go run main.go
 ```
 
