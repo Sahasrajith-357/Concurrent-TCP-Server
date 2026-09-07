@@ -17,6 +17,15 @@ func main() {
 
 	log.Printf("connected to server: %s", conn.RemoteAddr())
 
+	reply := bufio.NewScanner(conn)
+	go func() {
+		for reply.Err() == nil && reply.Scan() {
+			line := reply.Text()
+			fmt.Printf("received: %s\n", line)
+		}
+		log.Printf("server disconnected: %s", conn.RemoteAddr())
+	}()
+
 	input := bufio.NewScanner(os.Stdin)
 	for input.Err() == nil && input.Scan() {
 		text := input.Text()
