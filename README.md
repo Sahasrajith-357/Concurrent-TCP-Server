@@ -14,12 +14,15 @@ A concurrent TCP echo server and client built with Go's standard `net` package. 
 - Go 1.22 or newer
 
 ## Project layout
+
+```text
 .
-├── tcp-multithreading
-│ └── tcp-server  # the concurrent TCP echo server
-│   └── main.go
-│ └── tcp-client  # a simple interactive TCP client
-│   └── main.go
+└── tcp-multithreading/
+    ├── tcp-server/             # The concurrent TCP echo server
+    │   └── main.go
+    └── tcp-client/             # A TCP client
+        └── main.go
+```
 
 ## Running the server
 
